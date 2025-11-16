@@ -58,3 +58,18 @@ interface IUsers {
 function filterActiveUsers(users: IUsers[]): IUsers[] {
   return users.filter((user) => user.isActive === true);
 }
+
+interface IBook {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+function printBookDetails(book: IBook): void {
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${
+      book.publishedYear
+    }, Available: ${book.isAvailable ? "Yes" : "No"}`
+  );
+}
