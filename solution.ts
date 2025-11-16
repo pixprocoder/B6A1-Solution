@@ -38,3 +38,12 @@ class Person {
     return `'Name: '${this.name}, Age: ${this.age}'`;
   }
 }
+
+interface IFilterItems {
+  title: string;
+  rating: number;
+}
+
+function filterByRating(items: IFilterItems[]): IFilterItems[] {
+  return items.filter((item) => item.rating >= 4);
+}
