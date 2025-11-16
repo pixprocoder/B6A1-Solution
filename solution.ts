@@ -47,3 +47,14 @@ interface IFilterItems {
 function filterByRating(items: IFilterItems[]): IFilterItems[] {
   return items.filter((item) => item.rating >= 4);
 }
+
+interface IUsers {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}
+
+function filterActiveUsers(users: IUsers[]): IUsers[] {
+  return users.filter((user) => user.isActive === true);
+}
