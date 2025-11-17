@@ -11,19 +11,17 @@ function formatValue(
     } else {
       return true;
     }
-  } else {
-    return "The input value is not accepted";
   }
+  return "The provided input value is not accepted";
 }
 
-function getLength(value: string | any[]): number {
+function getLength<T>(value: string | T[]): number {
   if (typeof value === "string") {
     return value.length;
   } else if (Array.isArray(value)) {
     return value.length;
-  } else {
-    return 0;
   }
+  return 0;
 }
 
 class Person {
@@ -39,13 +37,13 @@ class Person {
   }
 }
 
-interface IFilterItems {
+interface IBooks {
   title: string;
   rating: number;
 }
 
-function filterByRating(items: IFilterItems[]): IFilterItems[] {
-  return items.filter((item) => item.rating >= 4);
+function filterByRating(books: IBooks[]): IBooks[] {
+  return books.filter((item) => item.rating >= 4);
 }
 
 interface IUsers {
@@ -59,14 +57,14 @@ function filterActiveUsers(users: IUsers[]): IUsers[] {
   return users.filter((user) => user.isActive === true);
 }
 
-interface IBook {
+interface Book {
   title: string;
   author: string;
   publishedYear: number;
   isAvailable: boolean;
 }
 
-function printBookDetails(book: IBook): void {
+function printBookDetails(book: Book): void {
   console.log(
     `Title: ${book.title}, Author: ${book.author}, Published: ${
       book.publishedYear
@@ -74,11 +72,8 @@ function printBookDetails(book: IBook): void {
   );
 }
 
-function getUniqueValues(
-  array1: (number | string)[],
-  array2: (number | string)[]
-): (number | string)[] {
-  const result: (number | string)[] = [];
+function getUniqueValues<X, Y>(array1: X[], array2: Y[]): (X | Y)[] {
+  const result: (X | Y)[] = [];
   const newArray = [...array1, ...array2];
 
   for (let i = 0; i < newArray.length; i++) {
