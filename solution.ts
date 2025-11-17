@@ -73,3 +73,30 @@ function printBookDetails(book: IBook): void {
     }, Available: ${book.isAvailable ? "Yes" : "No"}`
   );
 }
+
+function getUniqueValues(
+  array1: (number | string)[],
+  array2: (number | string)[]
+): (number | string)[] {
+  const result: (number | string)[] = [];
+  const newArray = [...array1, ...array2];
+
+  for (let i = 0; i < newArray.length; i++) {
+    let isExist = false;
+
+    for (let j = 0; j < result.length; j++) {
+      if (newArray[i] === result[j]) {
+        isExist = true;
+      }
+    }
+    if (!isExist) {
+      result.push(newArray[i]);
+    }
+  }
+
+  return result;
+}
+
+function calculateTotalPrice() {
+  //TODO: Solve problem 8
+}
