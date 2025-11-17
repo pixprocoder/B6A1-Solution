@@ -97,6 +97,17 @@ function getUniqueValues(
   return result;
 }
 
-function calculateTotalPrice() {
-  //TODO: Solve problem 8
+interface IProducts {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+function calculateTotalPrice(products: IProducts[]): number {
+  const totalPrice = products.reduce((acc, item) => {
+    const discount = item.discount || 0;
+    const result = item.price * item.quantity * (1 - discount / 100);
+    return acc + result;
+  }, 0);
+  return totalPrice;
 }
