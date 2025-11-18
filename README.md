@@ -1,4 +1,4 @@
-What are some differences between interfaces and types in TypeScript?
+### What are some differences between interfaces and types in TypeScript?
 
 typescrip এ **টাইপ** and **ইন্টারফেস** আমরা ব্যবহার করি টাইপ ডিক্লেয়ার করার জন্য। সো নিচে কিছু উদাহরণ দেয়া হলো :
 
@@ -29,3 +29,39 @@ interface User {
 ```
 
 উপসংহার : আমরা আমাদের প্রয়োজন অনুসারে ব্যবহার করবো। মোস্টলী অবজেক্ট টাইপ অফ things হলে **ইন্টারফেস** use করবো otherwise **টাইপ** use করবো।
+
+### What is the use of enums in TypeScript? Provide an example of a numeric and string enum?
+
+enums আমাদের named constants ডিফাইন করতে সাহায্য করে। এটির সাহায্যে আমরা ক্লিন কোড মিনিংফুল names এন্ড values এবং typos থেকে বাঁচতে পারি।
+
+উদাহরণ:
+**Numeric Enum (default)**:
+
+```ts
+enum Number {
+  One, // 0
+  Two, // 1
+}
+
+enum Status {
+  Pending = 1,
+  Active = 2,
+  Completed = 3,
+}
+```
+
+**String Enum**:
+
+```ts
+enum UserRole {
+  Admin = "ADMIN",
+  User = "USER",
+  Guest = "GUEST",
+}
+```
+
+ওকে সো here কেন আমরা enums use করবো:
+
+- Typos প্রতিরোধ. করতে : "ADMIN" এর পরিবর্তে UserRole.Admin
+- Type safety : আমাদের ভুল টাইপ পাঠানো থেকে বিরত রাখে
+- Autocomplete : কোড এডিটর suggesion করে।
