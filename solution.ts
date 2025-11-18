@@ -15,7 +15,7 @@ function formatValue(
   return "The provided input value is not accepted";
 }
 
-function getLength<T>(value: string | T[]): number {
+function getLength(value: string | (string | number)[]): number {
   if (typeof value === "string") {
     return value.length;
   } else if (Array.isArray(value)) {
